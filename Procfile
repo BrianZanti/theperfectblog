@@ -1,0 +1,1 @@
+web: gunicorn ThePerfectBlog.wsgi --log-file -
