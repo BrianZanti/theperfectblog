@@ -35,6 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,7 +54,7 @@ ROOT_URLCONF = 'ThePerfectBlog.urls'
 TEMPLATES = (
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["blog","blog/templates/blog"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
