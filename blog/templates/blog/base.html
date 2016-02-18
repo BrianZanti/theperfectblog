@@ -1,10 +1,42 @@
-<!DOCTYPE html>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/styles.css' %}" />
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
+    <div class = "top"></div>
+    <div class = "bottom">
+            <a class = "nav" href ="/">Home</a>
+            <a class = "nav" href="/account">My Account</a>
+            <a class = "nav" href="/new">Add a Post</a>
+            <form style="display: inline;" onsubmit="goToPost()">
+                <input type = "text" placeholder = "Go to this article ID" style="display: inline;" id = "post">
+                <input type = "button" value = "Go" onclick = "goToPost()">
+            </form>
+        <script>
+            function goToPost() {
+                  var url = ("/"+(document.getElementById("post")).value);
+                  window.location.href = url;
+            }
+        </script>
+        </div>
+    </div>
+    <div class = "main">
+        {% if errors %}
+            {% for error in errors %}
+                <p class = "error">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class = "message">{{message}}</p>
+            {% endfor %}
+        {% endif %}
 
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

@@ -1,10 +1,27 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/styles.css' %}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>New User</title>
 </head>
 <body>
+{% for message in messages %}
+    {{message}}
+{% endfor %}
+{% for error in errors %}
+    <p class="error">{{error}}</p>
+{% endfor %}
 
+<form action="/accounts/create/" method="post">
+    {% csrf_token %}
+    <table>
+    {{form}}
+    </table>
+    <input type="submit" value="Submit" />
+</form>
 </body>
 </html>

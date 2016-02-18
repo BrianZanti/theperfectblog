@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'blog/base.html' %}
+{% block content %}
+    <h1>Username: {{user.username}}</h1>
+    <p>date joined: {{user.date_joined}}</p>
+    <h1>Your Posts</h1>
+    {% for post in posts %}
+        <p><a href = "/{{post.pk}}">{{post.title}}</a>: published {{post.date_created}}</p>
+    {% endfor %}
+    <h1>Your Comments</h1>
+    {% for comment in comments %}
+        <p>On {{comment.date_created}} you commented on post <a href = "/{{comment.blogpost.pk}}">{{comment.blogpost.title}}</a>:<br>
+            {{comment.body}}</p>
+    {% endfor %}
+    <button class = "error" onclick="deleteAccount()">DELETE ACCOUNT</button>
+    <script>
+        function deleteAccount(){
+            if(confirm("This will delete your account as well as all of your posts and comments. Do you wish to proceed?") == true){
+                window.location.href = "/accounts/delete"
+            }
+        }
+    </script>
+{% endblock %}

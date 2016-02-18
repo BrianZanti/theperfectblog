@@ -1,3 +1,45 @@
 .error {
     color: red;
 }
+
+.message {
+    color: blue;
+}
+
+.main {
+    text-align: center
+}
+
+.top {
+    height: 15%;
+    width: 100%;
+    background: url("images/perfectblog.jpg") no-repeat center;
+}
+.bottom {
+    height: 10%;
+    width: 100%;
+    background-color: cyan;
+    position: relative;
+}
+
+.nav {
+    *background-color: white;
+    *width: 10%;
+    *padding: 10px;
+    *position: relative;
+    *top: 10%;
+    *display: inline;
+    *vertical-align: middle;
+    *line-height: normal;
+     * height: 90px;
+  *line-height: 90px;
+
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    height: 80%;
+    margin-top: -40%;
+    background-color: white;
+}
